@@ -1,13 +1,11 @@
 document.addEventListener('DOMContentLoaded', function () {
 	
-	// Objeto de dados com as informações de financiamento (valores numéricos)
+	// Objeto de dados com as informações de financiamento (ESTRUTURA MANTIDA)
 	const dadosFinanciamento = [
 		// SBPE (Sistema Brasileiro de Poupança e Empréstimo)
 		// TR (Taxa Referencial)
 		{
 			show: false,
-			// rowSpanText: "SBPE - TR",
-			// rowSpanCount: 6,
 			modalidade: "SBPE",
 			tipoImovel: "Usado",
 			amortizacao: "SAC",
@@ -17,7 +15,6 @@ document.addEventListener('DOMContentLoaded', function () {
 			cotaMaxima: 70,
 			comprometimentoRenda: 30,
 		},
-		
 		{
 			show: false,
 			modalidade: "SBPE",
@@ -29,7 +26,6 @@ document.addEventListener('DOMContentLoaded', function () {
 			cotaMaxima: 50,
 			comprometimentoRenda: 25,
 		},
-		
 		{
 			show: false,
 			modalidade: "SBPE",
@@ -74,12 +70,9 @@ document.addEventListener('DOMContentLoaded', function () {
 			cotaMaxima: 80,
 			comprometimentoRenda: 25,
 		},
-		
 		// Poupança
 		{
 			show: false,
-			// rowSpanText: "SBPE - Poupança",
-			// rowSpanCount: 6,
 			modalidade: "SBPE",
 			tipoImovel: "Usado",
 			amortizacao: "SAC",
@@ -142,26 +135,9 @@ document.addEventListener('DOMContentLoaded', function () {
 			cotaMaxima: 80,
 			comprometimentoRenda: 25,
 		},
-		
-		
-		// Pró-Cotista FGTS
-		// {
-		//   modalidade: "Pró-Cotista",
-		//   tipoImovel: "Novo ou Usado",
-		//   amortizacao: "SAC / PRICE",
-		//   indexador: "TR",
-		//   prazoMinimo: 120,
-		//   prazoMaximo: 420,
-		//   cotaMaxima: 80,
-		//   comprometimentoRenda: 30,
-		// },
-		
 		// Minha Casa, Minha Vida (MCMV)
-		// Novo ou Usado
 		{
 			show: false,
-			// rowSpanText: "MCMV - Novo ou Usado",
-			// rowSpanCount: 4,
 			modalidade: "MCMV - Faixa 1",
 			tipoImovel: "Novo ou Usado",
 			amortizacao: "SAC ou PRICE",
@@ -204,8 +180,6 @@ document.addEventListener('DOMContentLoaded', function () {
 			cotaMaxima: 80,
 			comprometimentoRenda: 30,
 		},
-		
-		// //
 		// MCMV - Empreendimento
 		{
 			rowSpanText: "MCMV",
@@ -220,8 +194,9 @@ document.addEventListener('DOMContentLoaded', function () {
 			comprometimentoRenda: 30,
 			maxRenda: 2160,
 			minRenda: 0,
-			maxFinanciamentoContagem: 245000,
-			maxFinanciamentoBHTE: 264000
+			infoComRedutor: "Até <a href='#limite-cidade' class='text-body text-decoration-underline'>limite cidade</a>: 6.7%<br><br>Acima do limite: 7.93%",
+			infoSemRedutor: "Até <a href='#limite-cidade' class='text-body text-decoration-underline'>limite cidade</a>: 7.3%<br><br>Acima do limite: 8.47%",
+			infosRowSpanCount: 3,
 		},
 		{
 			modalidade: "MCMV - Faixa 1,5",
@@ -234,7 +209,18 @@ document.addEventListener('DOMContentLoaded', function () {
 			comprometimentoRenda: 30,
 			maxRenda: 2850,
 			minRenda: 2160.01,
-			maxFinanciamento: 264000,
+		},
+		{
+			modalidade: "MCMV - Faixa 1 (Extendida)",
+			tipoImovel: "Empreendimento",
+			amortizacao: "SAC ou PRICE",
+			indexador: "TR",
+			prazoMinimo: 120,
+			prazoMaximo: 420,
+			cotaMaxima: 80,
+			comprometimentoRenda: 30,
+			maxRenda: 3500,
+			minRenda: 2850.01,
 		},
 		{
 			modalidade: "MCMV - Faixa 2",
@@ -245,9 +231,11 @@ document.addEventListener('DOMContentLoaded', function () {
 			prazoMaximo: 420,
 			cotaMaxima: 80,
 			comprometimentoRenda: 30,
-			maxRenda: 3500,
-			minRenda: 2850.01,
-			maxFinanciamento: 264000,
+			maxRenda: 4000,
+			minRenda: 3500.01,
+			infoComRedutor: "Até <a href='#limite-cidade' class='text-body text-decoration-underline'>limite cidade</a>: 6.7%<br><br>Acima do limite: 7.93%",
+			infoSemRedutor: "Até <a href='#limite-cidade' class='text-body text-decoration-underline'>limite cidade</a>: 7.3%<br><br>Acima do limite: 8.47%",
+			infosRowSpanCount: 2,
 		},
 		{
 			modalidade: "MCMV - Faixa 2,5",
@@ -258,9 +246,8 @@ document.addEventListener('DOMContentLoaded', function () {
 			prazoMaximo: 420,
 			cotaMaxima: 80,
 			comprometimentoRenda: 30,
-			maxRenda: 4000,
-			minRenda: 3500.01,
-			maxFinanciamento: 264000,
+			maxRenda: 4700,
+			minRenda: 4000.01,
 		},
 		{
 			modalidade: "MCMV - Faixa 3",
@@ -271,25 +258,13 @@ document.addEventListener('DOMContentLoaded', function () {
 			prazoMaximo: 420,
 			cotaMaxima: 80,
 			comprometimentoRenda: 30,
-			maxRenda: 4700,
-			minRenda: 4000.01,
-			maxFinanciamento: 350000,
-		},
-		{
-			modalidade: "MCMV - Faixa 3,5",
-			tipoImovel: "Empreendimento",
-			amortizacao: "SAC ou PRICE",
-			indexador: "TR",
-			prazoMinimo: 120,
-			prazoMaximo: 420,
-			cotaMaxima: 80,
-			comprometimentoRenda: 30,
 			maxRenda: 8600,
 			minRenda: 4700.01,
-			maxFinanciamento: 350000,
+			infoComRedutor: "Até 350 mil - 7.93%<br><br>De 350 mil à 500 mil - 10.47%",
+			infoSemRedutor: "Até 350 mil - 8.47%<br><br>De 350 mil à 500 mil - 10.47%",
 		},
 		{
-			modalidade: "MCMV - Faixa 4 (Classe Média)",
+			modalidade: "MCMV - Faixa 4 (Classe média)",
 			tipoImovel: "Empreendimento",
 			amortizacao: "SAC ou PRICE",
 			indexador: "TR",
@@ -299,67 +274,95 @@ document.addEventListener('DOMContentLoaded', function () {
 			comprometimentoRenda: 30,
 			maxRenda: 12000,
 			minRenda: 8600.01,
-			maxFinanciamento: 500000,
+			infoComRedutor: "Redutor não se aplica. Taxa de 10.47%",
+			infoSemRedutor: "Taxa de 10.47%",
 		},
 	];
 	
 	const tabelaBody = document.getElementById('tabela-financiamento-body');
 	
 	/**
-	 * Formata um valor numérico para uma string de percentual.
-	 * Trata casos especiais onde o valor pode não ser um número.
-	 * @param {number|null} valor O número a ser formatado.
-	 * @param {string} textoPadrao O texto a ser exibido se o valor for nulo ou inválido.
-	 * @returns {string} O valor formatado como "Até X%" ou o texto padrão.
+	 * Pre-processes data to dynamically add rowspan information.
+	 * @param {Array<Object>} data - The data array to process.
+	 * @param {Array<string>} columns - The column keys to check for rowspan.
+	 * @returns {Array<Object>} The processed data with new rowspan properties.
 	 */
-	function formatarPercentual(valor, textoPadrao = 'Varia conforme análise') {
-		if (typeof valor === 'number' && !isNaN(valor)) {
-			// return `Até ${valor}%`;
-			return `${valor}%`;
-		}
-		// Para casos como a Faixa 1 do MCMV, onde o valor não é um percentual fixo.
-		if (valor === null) {
-			if (textoPadrao === 'Varia conforme análise') return "Subsídio Elevado";
-			else return textoPadrao;
-		}
-		return textoPadrao;
+	function preprocessDataForRowspan(data, columns) {
+		const processedData = data.map(item => ({...item}));
+		
+		columns.forEach(column => {
+			let i = 0;
+			while (i < processedData.length) {
+				const currentValue = processedData[i][column];
+				let count = 1;
+				while (i + count < processedData.length && processedData[i + count][column] === currentValue) {
+					count++;
+				}
+				
+				processedData[i][`${column}Rowspan`] = count;
+				for (let j = 1; j < count; j++) {
+					processedData[i + j][`${column}Rowspan`] = 0;
+				}
+				i += count;
+			}
+		});
+		return processedData;
 	}
 	
-	// Função para renderizar os dados na tabela
-	function renderizarTabela() {
-		// Limpa o corpo da tabela antes de inserir novas linhas
+	/**
+	 * Formats a numeric value into a percentage string.
+	 * @param {number|null} value The number to format.
+	 * @returns {string} The formatted percentage string or a dash.
+	 */
+	function formatPercentage(value) {
+		if (typeof value === 'number' && !isNaN(value)) {
+			return `${value}%`;
+		}
+		return "-";
+	}
+	
+	/**
+	 * Renders the data into the HTML table.
+	 */
+	function renderTable() {
+		if (!tabelaBody) return;
 		tabelaBody.innerHTML = '';
 		
-		// Itera sobre cada objeto no array de dados e cria uma linha na tabela
-		dadosFinanciamento.forEach(item => {
-			if (!Object.keys(item).includes("show") && item.show !== false) {
-				const row = document.createElement('tr');
-				
-				// Formata os valores numéricos para exibição
-				const cotaFormatada = formatarPercentual(item.cotaMaxima);
-				const comprometimentoFormatado = formatarPercentual(item.comprometimentoRenda, 'Varia conforme renda e subsídio');
-				
-				
-				row.innerHTML = `
-                <!-- ${item.rowSpanText && item.rowSpanCount ? `<td rowspan="${item.rowSpanCount}">${item.rowSpanText}</td>` : ''} -->
-                <td class="text-center fw-normal">${item.modalidade}</td>
-                <td>${item.amortizacao}</td>
-                <td>${item.indexador}</td>
-                <td>${item.prazoMinimo}</td>
-                <td>${item.prazoMaximo}</td>
-                <td>${cotaFormatada}</td>
-                <td>${comprometimentoFormatado}</td>
-                <td>${Object.keys(item).includes("maxRenda") && Object.keys(item).includes("minRenda") ? item.minRenda.toLocaleString("pt-BR", {style: "currency", currency: "BRL"}) + " à " + item.maxRenda.toLocaleString("pt-BR", {style: "currency", currency: "BRL"}) : "-"}</td>
-                <td>${Object.keys(item).includes("maxFinanciamento") ? [...(!Array.isArray(item.maxFinanciamento) ? [item.maxFinanciamento] : item.maxFinanciamento)].map((mf, _, self) => mf.toLocaleString("pt-BR", {style: "currency", currency: "BRL"})).join(" ou ") : "-" }</td>
-                <td></td>
+		const visibleData = dadosFinanciamento.filter(item => !item.hasOwnProperty('show') || item.show !== false);
+		const columnsToGroup = [
+			'amortizacao',
+			'indexador',
+			'prazoMinimo',
+			'prazoMaximo',
+			'cotaMaxima',
+			'comprometimentoRenda'
+		];
+		
+		const processedData = preprocessDataForRowspan(visibleData, columnsToGroup);
+		
+		processedData.forEach(item => {
+			const row = document.createElement('tr');
+			
+			// Note the camelCase properties like 'amortizacaoRowspan' being used
+			row.innerHTML = `
+                <td class="text-center fw-normal t-wrap">${item.modalidade}</td>
+                
+                ${item.amortizacaoRowspan > 0 ? `<td rowspan="${item.amortizacaoRowspan}">${item.amortizacao}</td>` : ''}
+                ${item.indexadorRowspan > 0 ? `<td rowspan="${item.indexadorRowspan}">${item.indexador}</td>` : ''}
+                ${item.prazoMinimoRowspan > 0 ? `<td rowspan="${item.prazoMinimoRowspan}">${item.prazoMinimo}</td>` : ''}
+                ${item.prazoMaximoRowspan > 0 ? `<td rowspan="${item.prazoMaximoRowspan}">${item.prazoMaximo}</td>` : ''}
+                ${item.cotaMaximaRowspan > 0 ? `<td rowspan="${item.cotaMaximaRowspan}">${formatPercentage(item.cotaMaxima)}</td>` : ''}
+                ${item.comprometimentoRendaRowspan > 0 ? `<td rowspan="${item.comprometimentoRendaRowspan}">${formatPercentage(item.comprometimentoRenda)}</td>` : ''}
+                
+                <td>${item.hasOwnProperty("maxRenda") ? new Intl.NumberFormat('pt-BR', {style: 'currency', currency: 'BRL'}).format(item.minRenda) + " à " + new Intl.NumberFormat('pt-BR', {style: 'currency', currency: 'BRL'}).format(item.maxRenda) : "-"}</td>
+                
+                ${item.infosRowSpanCount ? `<td rowspan="${item.infosRowSpanCount}">${item.infoComRedutor}</td>` : (item.infoComRedutor && !item.infosRowSpanCount) || item.modalidade.toLowerCase().includes("sbpe") ? `<td>${item.infoComRedutor || "-"}</td>` : ''}
+                ${item.infosRowSpanCount ? `<td rowspan="${item.infosRowSpanCount}">${item.infoSemRedutor}</td>` : (item.infoSemRedutor && !item.infosRowSpanCount) || item.modalidade.toLowerCase().includes("sbpe") ? `<td>${item.infoSemRedutor || "-"}</td>` : ''}
             `;
-				
-				tabelaBody.appendChild(row);
-			}
+			
+			tabelaBody.appendChild(row);
 		});
 	}
 	
-	// Chama a função para renderizar a tabela assim que a página carregar
-	renderizarTabela();
-	
+	renderTable();
 });

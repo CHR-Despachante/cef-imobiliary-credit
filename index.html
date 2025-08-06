@@ -48,6 +48,10 @@
         text-align: left;
         font-weight: bold;
       }
+      
+      .t-wrap {
+        text-wrap: balance;
+      }
     </style>
   </head>
 
@@ -76,25 +80,60 @@
               <th rowspan="3">Cota Máxima Financiada</th>
               <th rowspan="3">Comp. Máx. de Renda</th>
               <th rowspan="3">Renda</th>
-              <th colspan="2">Limite compra ou venda</th>
+              <th colspan="2" class="t-wrap">Taxa de juros de acordo com a renda</th>
             </tr>
             <tr>
               <th>Mínimo</th>
               <th>Máximo</th>
-              <th>Contagem</th>
-              <th>Belo Horizonte</th>
+              <th>Com redutor (desc. 0.5%)</th>
+              <th>Sem redutor</th>
             </tr>
           </thead>
           <tbody id="tabela-financiamento-body">
           </tbody>
         </table>
       </div>
-      <p class="text-muted mt-3 d-none">
-        <strong>Aviso:</strong> As informações apresentadas nesta tabela são uma referência geral e podem variar entre
-        as instituições financeiras e de acordo com a análise de crédito do proponente. As condições do programa Minha
-        Casa, Minha Vida (MCMV) são definidas pelo Governo Federal e podem sofrer alterações. Consulte sempre o banco de
-        sua preferência para obter as condições exatas e atualizadas.
-      </p>
+    </div>
+    
+    <div class="mx-auto d-flex flex-column gap-3 mt-5" style="max-width: 1200px;">
+      <div class="d-flex align-items-center justify-content-between gap-5 border p-0">
+        <div class="d-flex flex-column align-items-center justify-content-center border border-bottom-0 border-right-0 border-top-0 p-4 m-0">
+          <img src="assets/chr-logo-2.png" alt="Logo da CHR" class="object-fit-contain" width="150" height="auto">
+        </div>
+        <div class="me-3" style="flex: 1">
+          <h2 class="m-0 fs-3" style="text-wrap: balance;">Limite no valor de compra ou venda das cidades no MCMV <span class="text-decoration-underline">para rendas de até R$ 4.700,00 (Faixas 1 e 2)</span></h2>
+        </div>
+      </div>
+      
+      <div class="table-responsive" id="limite-cidade">
+        <table class="table table-bordered table-striped table-success">
+          <thead class="thead-light">
+            <tr>
+              <th>Cidade</th>
+              <th>Valor máximo de compra ou venda para faixas 1 e 2 para obter a <span class="text-decoration-underline">menor taxa</span></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="text-center">Belo Horizonte</td>
+              <td class="text-center">R$ 264 mil</td>
+            </tr>
+            <tr>
+              <td class="text-center">Contagem</td>
+              <td class="text-center">R$ 245 mil</td>
+            </tr>
+            <tr>
+              <td class="text-center">Betim</td>
+              <td class="text-center">R$ 245 mil</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      
+      <div class="text-body-secondary" role="alert">
+        <b>O que isso significa?</b>
+        <p class="mb-0 mt-2">Se o cliente estiver comprando no MCMV e a renda bruta familiar for de até R$ 4.700,00, para que ele consiga <span class="text-decoration-underline">a taxa de 6.7 (com redutor) ou 7.93 (sem redutor)</span> o valor de compra ou venda da unidade <span class="text-decoration-underline">precisa corresponder até o valor descrito na tabela acima</span>.</p>
+      </div>
     </div>
 
     <script src="assets/script.js"></script>
